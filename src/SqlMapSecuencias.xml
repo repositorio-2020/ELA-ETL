@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Secuencias">
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="Secuencias" type="isahc.admin.paramtos.Secuencias"/>
+
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+  <resultMap id="SecuenciaResult" class="isahc.admin.paramtos.Secuencias">
+  </resultMap>
+
+  <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectAllSecuencias" resultMap="SecuenciaResult">
+    select * from sec_secuencias
+  </select>
+   
+    <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectFilterSecuencias" parameterClass="isahc.admin.paramtos.Secuencias" resultClass="isahc.admin.paramtos.Secuencias">
+    select * from sec_secuencias 
+     <dynamic prepend="WHERE ">
+       <isNull property="sec_nombre"  removeFirstPrepend="true">
+       </isNull>
+       <isNotNull property="sec_nombre">
+          sec_nombre=#sec_nombre#
+       </isNotNull>
+    </dynamic>
+  </select>
+
+  
+  <!-- A simpler select example without the result map.  Note the 
+       aliases to match the properties of the target result class. -->
+  <select id="selectSecuenciaById" parameterClass="String" resultClass="isahc.admin.paramtos.Secuencias">
+    SELECT *
+    FROM sec_secuencias  
+    WHERE sec_nombre = #id#
+  </select>
+   
+  <!-- Insert example, using the Account parameter class 
+  <insert id="insertAccount" parameterClass="Formato">
+    insert into ACCOUNT (
+      ACC_ID,
+      ACC_FIRST_NAME,
+      ACC_LAST_NAME,
+      ACC_EMAIL
+    values (
+      #id#, #firstName#, #lastName#, #emailAddress#
+    )
+  </insert>
+-->
+  
+  
+  <!-- Update example, using the Account parameter class  -->
+  <update id="updateSecuencia" parameterClass="String">
+    update sec_secuencias set
+      sec_secue = sec_secue + 1
+    where
+      sec_nombre = #id#
+  </update>
+
+
+
+  <!-- Delete example, using an integer as the parameter class -->
+  <delete id="deleteSecuenciasById" parameterClass="String">
+    delete from sec_secuencias WHERE sec_nombre = #id#
+  </delete>
+
+</sqlMap>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    
+<mapper namespace="ErrorFile">
+       
+    <resultMap id="result" type="cl.mybatis.pojos.ErrorFile">   
+        <result property="erf_secue" column="erf_secue"/>
+        <result property="erf_namefile" column="erf_namefile"/>
+        <result property="erf_linea" column="erf_linea"/>
+        <result property="erf_error" column="erf_error"/>
+        <result property="erf_fchhora" column="erf_fchhora"/>
+        <result property="erf_nrolinea" column="erf_nrolinea"/>        
+    </resultMap>
+  
+    <select id="selectFilter" parameterType="cl.mybatis.pojos.ErrorFile" resultMap="result">  
+        SELECT erf_secue,
+            erf_namefile,
+            erf_linea,
+            erf_error,
+            erf_fchhora,
+            erf_nrolinea
+        FROM erf_error_file limit 500;
+    </select>
+            
+    <select id="selectAll" parameterType="cl.mybatis.pojos.ErrorFile" resultMap="result">               
+        SELECT erf_secue,
+            erf_namefile,
+            erf_linea,
+            erf_error,
+            erf_fchhora,
+            erf_nrolinea
+        FROM erf_error_file limit 500;
+    </select>
+     
+    <insert id="insert" keyProperty="erf_secue"  parameterType="cl.mybatis.pojos.ErrorFile">
+            INSERT INTO erf_error_file
+            (erf_namefile,
+            erf_linea,
+            erf_error,
+            erf_fchhora,
+            erf_nrolinea )
+            VALUES (
+            #{erf_namefile},   
+            #{erf_linea},
+            #{erf_error},
+            now(),
+            #{erf_nrolinea} );        
+    </insert>
+          
+    <delete id="delete" parameterType="cl.mybatis.pojos.ErrorFile">
+        delete from erf_error_file where erf_secue >= 1;
+    </delete>             
+                   
+</mapper>

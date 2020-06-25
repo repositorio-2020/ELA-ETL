@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Formatos">
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="Formatos" type="isahc.admin.paramtos.Formatos"/>
+
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+  <resultMap id="FormatoResult" class="isahc.admin.paramtos.Formatos">
+  </resultMap>
+
+  <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectAllFormatos" resultMap="FormatoResult">
+    select * from cuf_for_formatos 
+  </select>
+   
+    <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectFilterFormatos" parameterClass="isahc.admin.paramtos.Formatos" resultClass="isahc.admin.paramtos.Formatos">
+    select * from cuf_for_formatos 
+     <dynamic prepend="WHERE ">
+       <isNull property="cuf_for_secue"  removeFirstPrepend="true">
+       </isNull>
+       <isNotNull property="cuf_for_secue">
+          cuf_for_secue=#cuf_for_secue#
+       </isNotNull>
+    </dynamic>
+  </select>
+
+  
+  <!-- A simpler select example without the result map.  Note the 
+       aliases to match the properties of the target result class. -->
+  <select id="selectFormatoById" parameterClass="String" resultClass="isahc.admin.paramtos.Formatos">
+    SELECT cuf_for_secue,   
+         cuf_par_tipfor,   
+         cuf_par_tipper,   
+         cuf_par_tiparc,   
+         cuf_for_nombre,   
+         cuf_for_descri,   
+         cuf_for_diaini,   
+         cuf_for_nrodias,   
+         cuf_for_path,   
+         cuf_for_estado,   
+         cuf_for_cabecera,   
+         cuf_for_prellena,   
+         cuf_for_plantilla,
+         cuf_for_filas
+    FROM cuf_for_formatos  
+    WHERE cuf_for_secue = #id#
+  </select>
+
+  <insert id="insertFormato" parameterClass="isahc.admin.paramtos.Formatos">
+     INSERT INTO cuf_for_formatos  
+         ( cuf_for_secue,   
+           cuf_par_tipfor,   
+           cuf_par_tipper,   
+           cuf_par_tiparc,   
+           cuf_for_nombre,   
+           cuf_for_descri,   
+           cuf_for_diaini,   
+           cuf_for_nrodias,   
+           cuf_for_path,   
+           cuf_for_estado,   
+           cuf_for_cabecera,   
+           cuf_for_prellena,   
+           cuf_for_plantilla,   
+           cuf_for_filas )  
+  VALUES ( #cuf_for_secue#,   
+           #cuf_par_tipfor#,   
+           #cuf_par_tipper#,   
+           #cuf_par_tiparc#,   
+           #cuf_for_nombre#,   
+           #cuf_for_descri#,   
+           #cuf_for_diaini#,   
+           #cuf_for_nrodias#,   
+           #cuf_for_path#,   
+           #cuf_for_estado#,   
+           #cuf_for_cabecera#,   
+           #cuf_for_prellena#,   
+           #cuf_for_plantilla#,   
+           #cuf_for_filas# ) 
+  </insert>
+
+
+<update id="updateFormato" parameterClass="isahc.admin.paramtos.Formatos">
+  UPDATE cuf_for_formatos  
+     SET cuf_par_tipfor = #cuf_par_tipfor#,   
+         cuf_par_tipper = #cuf_par_tipper#,   
+         cuf_par_tiparc = #cuf_par_tiparc#,   
+         cuf_for_nombre = #cuf_for_nombre#,   
+         cuf_for_descri = #cuf_for_descri#,   
+         cuf_for_diaini = #cuf_for_diaini#,   
+         cuf_for_nrodias = #cuf_for_nrodias#,   
+         cuf_for_path = #cuf_for_path#,   
+         cuf_for_estado = #cuf_for_estado#,   
+         cuf_for_cabecera = #cuf_for_cabecera#,   
+         cuf_for_prellena = #cuf_for_prellena#,   
+         cuf_for_plantilla = #cuf_for_plantilla#,   
+         cuf_for_filas = #cuf_for_filas#  
+   WHERE cuf_for_secue = #cuf_for_secue#        
+</update>
+
+  
+
+
+  <!-- Delete example, using an integer as the parameter class -->
+  <delete id="deleteFormatoById" parameterClass="String">
+    delete from cuf_for_formatos WHERE cuf_for_secue = #id#
+  </delete>
+
+</sqlMap>

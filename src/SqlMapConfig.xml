@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+  <!-- Configure a built-in transaction manager.  If you're using an 
+       app server, you probably want to use its transaction manager 
+       and a managed datasource 
+  <transactionManager type="JDBC" commitRequired="false">
+    <dataSource type="SIMPLE">
+      <property name="JDBC.Driver" value="org.hsqldb.jdbcDriver"/>
+      <property name="JDBC.ConnectionURL" value="jdbc:hsqldb:."/>
+      <property name="JDBC.Username" value="sa"/>
+      <property name="JDBC.Password" value="sa"/>
+    </dataSource>
+  </transactionManager>
+
+<transactionManager type="JDBC" commitRequired="false">
+    <dataSource type="SIMPLE">
+      <property name="JDBC.Driver" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <property name="JDBC.ConnectionURL" value="jdbc:odbc:Isahcx"/>
+      <property name="JDBC.Username" value="dba"/>
+      <property name="JDBC.Password" value="sql"/>
+    </dataSource>
+  </transactionManager>
+  
+
+ <transactionManager type="JDBC" >
+   <dataSource type="SIMPLE">
+    <property name="JDBC.Driver" value="org.gjt.mm.mysql.Driver"/>
+       <property name="JDBC.ConnectionURL" value="jdbc:mysql://192.168.0.27:3306/Isahc"/>
+    <property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost/isahc"/>
+    <property name="JDBC.Username" value="root"/>
+    <property name="JDBC.Password" value="drla0404"/>
+   </dataSource>
+ </transactionManager>
+
+  
+  
+ <transactionManager type="JDBC" >
+   <dataSource type="SIMPLE">
+    <property name="JDBC.Driver" value="org.gjt.mm.mysql.Driver"/>
+  <property name="JDBC.ConnectionURL" value="jdbc:mysql://172.16.20.75:3306/Isahc"/>
+    <property name="JDBC.Username" value="root"/>
+    <property name="JDBC.Password" value="Pa$$w0rd"/>
+   </dataSource>
+ </transactionManager>
+
+ 
+-->
+
+ <transactionManager type="JDBC" >
+   <dataSource type="SIMPLE">
+    <property name="JDBC.Driver" value="org.gjt.mm.mysql.Driver"/>
+    <property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost/isahc"/>
+    <property name="JDBC.Username" value="root"/>
+    <property name="JDBC.Password" value="drla0404"/>
+   </dataSource>
+ </transactionManager>
+
+ 
+
+  <!-- List the SQL Map XML files. They can be loaded from the 
+       classpath, as they are here (com.domain.data...) -->
+  <!--    
+  <sqlMap resource="sqlMapFormatos.xml"/>
+  <sqlMap resource="sqlMapColumnasFormato.xml"/>
+  <sqlMap resource="sqlMapSecuencias.xml"/>
+  -->
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapSolicitudCalidad.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapifCierreCalidad.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapAcuses.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapLogError.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapProcesos.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapExpresiones.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapReenvioUsuario.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapReenviaForm.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapConfigCeldasSalida.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapFormatosAsociados.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapCargoUsuario.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapDetalleRangos.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapCeldasSalida.xml"/>   
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapDatosCeldas.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapEventos.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapUsuFormatosDet.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapParametrosConfig.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapDataStoreSolicitud.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapCarguesXSolicitud.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapSolicitudCargue.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapParametrosTipo.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapMenuUsuario.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapCarguesDetalle.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapDataStore.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapColumnasFormato.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapSecuencias.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapFormatos.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapGrillas.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapConfigMail.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapUsuarios.xml"/> 
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapCargues.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapPerfil.xml"/>
+  <sqlMap url="file:///c:/ISAHC/SQLMap/sqlMapBloqueos.xml"/>
+
+ 
+  <!-- List more here...
+  <sqlMap resource="com/mydomain/data/Order.xml"/>
+  <sqlMap resource="com/mydomain/data/Documents.xml"/>
+  -->
+
+</sqlMapConfig>
